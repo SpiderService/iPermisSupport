@@ -275,14 +275,14 @@
         /* Features Grid */
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 16px;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 14px;
         }
         
         .feature {
             background: rgba(34, 197, 94, 0.1);
             border: 1px solid rgba(34, 197, 94, 0.2);
-            padding: 20px 16px;
+            padding: 18px 14px;
             border-radius: 16px;
             text-align: center;
             transition: all 0.3s ease;
@@ -295,14 +295,48 @@
         }
         
         .feature-icon {
-            font-size: 2rem;
-            margin-bottom: 10px;
+            font-size: 1.8rem;
+            margin-bottom: 8px;
         }
         
         .feature-text {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 600;
             color: #e2e8f0;
+        }
+        
+        /* Categories Grid */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 12px;
+            margin-top: 16px;
+        }
+        
+        .category-tag {
+            background: rgba(0, 115, 204, 0.1);
+            border: 1px solid rgba(0, 115, 204, 0.25);
+            color: var(--primary-light);
+            padding: 12px 16px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .category-tag:hover {
+            background: rgba(0, 115, 204, 0.2);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+        
+        .category-tag .count {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+            font-weight: 500;
         }
         
         /* Platform Badges */
@@ -384,6 +418,10 @@
                 flex-direction: column;
                 align-items: center;
             }
+            
+            .categories-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
     </style>
 </head>
@@ -425,7 +463,41 @@
         </div>
         
         <div class="glass-card">
+            <h2>Categorii Disponibile</h2>
+            <p style="margin-bottom: 16px; color: var(--text-secondary);">
+                Aplicația conține <strong style="color: #4ade80;">peste 2990 de întrebări</strong> oficiale DRPCIV pentru toate categoriile:
+            </p>
+            <div class="categories-grid">
+                <div class="category-tag">
+                    🏍️ Categoria A
+                    <span class="count">723 întrebări</span>
+                </div>
+                <div class="category-tag">
+                    🚗 Categoria B
+                    <span class="count">1493 întrebări</span>
+                </div>
+                <div class="category-tag">
+                    🚛 Categoria C
+                    <span class="count">151 întrebări</span>
+                </div>
+                <div class="category-tag">
+                    🚌 Categoria D
+                    <span class="count">56 întrebări</span>
+                </div>
+                <div class="category-tag">
+                    🔄 Redobândire
+                    <span class="count">568 întrebări</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="glass-card">
             <h2>Întrebări Frecvente</h2>
+            
+            <div class="faq-item">
+                <h3>Ce categorii de permis sunt disponibile?</h3>
+                <p>Aplicația include întrebări pentru categoriile A (motociclete), B (autoturisme), C (autocamioane), D (autobuze), precum și întrebări pentru <strong>redobândirea permisului</strong> de conducere.</p>
+            </div>
             
             <div class="faq-item">
                 <h3>Cum îmi resetez progresul?</h3>
@@ -433,13 +505,14 @@
             </div>
             
             <div class="faq-item">
-                <h3>Câte întrebări conține aplicația?</h3>
-                <p>Aplicația conține toate cele 1300+ întrebări oficiale DRPCIV pentru categoriile A, B, C, D și E, actualizate constant.</p>
+                <h3>Ce moduri de studiu sunt disponibile?</h3>
+                <p><strong>Mod Învățare:</strong> Exersezi la ritmul tău cu feedback instant după fiecare întrebare.<br>
+                <strong>Mod Examen:</strong> Simulare completă a examenului real cu cronometru și numărul exact de întrebări (ex: 26 întrebări în 30 minute pentru cat. B).</p>
             </div>
             
             <div class="faq-item">
                 <h3>Ce este modul Premium?</h3>
-                <p>Premium îți oferă acces nelimitat la examene, zero reclame, statistici detaliate și explicații complete pentru toate întrebările.</p>
+                <p>Premium îți oferă acces nelimitat la examene simulate, zero reclame, statistici detaliate de pregătire și toate funcționalitățile aplicației.</p>
             </div>
             
             <div class="faq-item">
@@ -450,7 +523,7 @@
             
             <div class="faq-item">
                 <h3>Pot folosi aplicația offline?</h3>
-                <p>Da! Toate întrebările și explicațiile sunt disponibile offline. Poți studia oriunde fără conexiune la internet.</p>
+                <p>Da! Toate întrebările, indicatoarele rutiere și legislația sunt disponibile offline. Poți studia oriunde fără conexiune la internet.</p>
             </div>
             
             <div class="faq-item">
@@ -459,37 +532,67 @@
             </div>
             
             <div class="faq-item">
-                <h3>Sunt întrebările actualizate?</h3>
-                <p>Da! Întrebările sunt actualizate constant conform ultimelor modificări DRPCIV pentru examenul auto.</p>
+                <h3>Ce alte funcționalități include aplicația?</h3>
+                <p>Pe lângă chestionare, aplicația include:<br>
+                • <strong>Indicatoare rutiere</strong> - 8 categorii cu imagini și explicații<br>
+                • <strong>Legislație rutieră</strong> - 10 capitole din Codul Rutier<br>
+                • <strong>Căutare întrebări</strong> - găsește rapid orice întrebare<br>
+                • <strong>Întrebări favorite</strong> - salvează întrebările importante<br>
+                • <strong>Statistici detaliate</strong> - urmărește-ți progresul<br>
+                • <strong>Reminder-uri zilnice</strong> - nu uita să studiezi</p>
             </div>
         </div>
         
         <div class="glass-card">
-            <h2>Funcționalități</h2>
+            <h2>Funcționalități Principale</h2>
             <div class="features-grid">
                 <div class="feature">
                     <div class="feature-icon">📚</div>
-                    <div class="feature-text">1300+ Întrebări</div>
+                    <div class="feature-text">2990+ Întrebări</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🔄</div>
+                    <div class="feature-text">Redobândire</div>
                 </div>
                 <div class="feature">
                     <div class="feature-icon">⏱️</div>
-                    <div class="feature-text">Teste Cronometrate</div>
+                    <div class="feature-text">Examene Simulate</div>
                 </div>
                 <div class="feature">
                     <div class="feature-icon">📊</div>
                     <div class="feature-text">Statistici Detaliate</div>
                 </div>
                 <div class="feature">
-                    <div class="feature-icon">📱</div>
-                    <div class="feature-text">iOS & Android</div>
+                    <div class="feature-icon">🚦</div>
+                    <div class="feature-text">Indicatoare Rutiere</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📖</div>
+                    <div class="feature-text">Legislație Rutieră</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🔍</div>
+                    <div class="feature-text">Căutare Întrebări</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">❤️</div>
+                    <div class="feature-text">Întrebări Favorite</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📴</div>
+                    <div class="feature-text">Funcționează Offline</div>
                 </div>
                 <div class="feature">
                     <div class="feature-icon">🌙</div>
                     <div class="feature-text">Mod Întunecat</div>
                 </div>
                 <div class="feature">
-                    <div class="feature-icon">📴</div>
-                    <div class="feature-text">Funcționează Offline</div>
+                    <div class="feature-icon">📱</div>
+                    <div class="feature-text">iOS & Android</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🔔</div>
+                    <div class="feature-text">Reminder-uri</div>
                 </div>
             </div>
         </div>

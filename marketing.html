@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iPermis - Chestionare Auto România</title>
-    <meta name="description" content="Pregătește-te pentru examenul auto cu iPermis! 1300+ întrebări DRPCIV actualizate. Ia-ți permisul din prima!">
-    <meta name="keywords" content="chestionare auto, drpciv, permis auto, examen auto, romania, test auto, intrebari drpciv">
+    <meta name="description" content="Pregătește-te pentru examenul auto cu iPermis! Peste 2990 întrebări DRPCIV pentru toate categoriile inclusiv redobândire. Ia-ți permisul din prima!">
+    <meta name="keywords" content="chestionare auto, drpciv, permis auto, examen auto, romania, test auto, intrebari drpciv, redobandire permis, categoria b, categoria a">
     <meta name="apple-itunes-app" content="app-id=1471760803">
     <meta name="google-play-app" content="app-id=com.tapsty.chestionareautoro">
     <meta property="og:title" content="iPermis - Chestionare Auto România">
-    <meta property="og:description" content="Pregătește-te pentru examenul auto cu iPermis! 1300+ întrebări DRPCIV actualizate.">
+    <meta property="og:description" content="Pregătește-te pentru examenul auto cu iPermis! Peste 2990 întrebări DRPCIV pentru toate categoriile.">
     <meta property="og:type" content="website">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -210,7 +210,7 @@
             color: var(--text-secondary);
             margin-bottom: 40px;
             line-height: 1.6;
-            max-width: 600px;
+            max-width: 650px;
             margin-left: auto;
             margin-right: auto;
             animation: heroFadeIn 1s ease-out 0.4s backwards;
@@ -321,9 +321,9 @@
             font-weight: 500;
         }
         
-        /* Features Section */
-        .features-section {
-            padding: 100px 24px;
+        /* Categories Section */
+        .categories-section {
+            padding: 80px 24px;
             position: relative;
             z-index: 1;
         }
@@ -332,11 +332,77 @@
             text-align: center;
             font-size: clamp(1.8rem, 4vw, 2.5rem);
             font-weight: 800;
-            margin-bottom: 60px;
+            margin-bottom: 20px;
             background: linear-gradient(135deg, #ffffff 0%, #94a3b8 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 50px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .categories-grid {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 16px;
+        }
+        
+        .category-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 24px 16px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .category-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 50px rgba(34, 197, 94, 0.2);
+        }
+        
+        .category-icon {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+        }
+        
+        .category-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+        
+        .category-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+        
+        .category-count {
+            font-size: 0.8rem;
+            color: var(--primary-light);
+            font-weight: 600;
+        }
+        
+        /* Features Section */
+        .features-section {
+            padding: 80px 24px;
+            position: relative;
+            z-index: 1;
         }
         
         .features-grid {
@@ -403,6 +469,93 @@
             line-height: 1.7;
         }
         
+        /* Modes Section */
+        .modes-section {
+            padding: 80px 24px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .modes-grid {
+            max-width: 800px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+        
+        .mode-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 32px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .mode-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+        }
+        
+        .mode-card.learning {
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+        
+        .mode-card.exam {
+            border-color: rgba(249, 115, 22, 0.3);
+        }
+        
+        .mode-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 35px;
+            margin: 0 auto 20px;
+        }
+        
+        .mode-card.learning .mode-icon {
+            background: linear-gradient(135deg, #3b82f6, #60a5fa);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+        }
+        
+        .mode-card.exam .mode-icon {
+            background: linear-gradient(135deg, #f97316, #fb923c);
+            box-shadow: 0 10px 30px rgba(249, 115, 22, 0.4);
+        }
+        
+        .mode-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        
+        .mode-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+        }
+        
+        .mode-features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .mode-feature {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+        
         /* Success Stories */
         .success-section {
             padding: 80px 24px;
@@ -436,37 +589,44 @@
             color: var(--text-primary);
         }
         
-        /* Categories */
-        .categories-section {
+        /* Extra Features */
+        .extras-section {
             padding: 80px 24px;
             position: relative;
             z-index: 1;
         }
         
-        .categories-grid {
-            max-width: 700px;
+        .extras-grid {
+            max-width: 900px;
             margin: 0 auto;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 12px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
         }
         
-        .category-tag {
-            background: rgba(34, 197, 94, 0.1);
-            border: 1px solid rgba(34, 197, 94, 0.25);
-            color: var(--primary-light);
-            padding: 12px 24px;
-            border-radius: 30px;
-            font-size: 0.95rem;
-            font-weight: 600;
+        .extra-item {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
             transition: all 0.3s ease;
         }
         
-        .category-tag:hover {
-            background: rgba(34, 197, 94, 0.2);
+        .extra-item:hover {
             border-color: var(--primary);
             transform: translateY(-2px);
+        }
+        
+        .extra-icon {
+            font-size: 1.8rem;
+        }
+        
+        .extra-text {
+            font-size: 0.95rem;
+            font-weight: 600;
         }
         
         /* Footer */
@@ -525,6 +685,14 @@
             .store-buttons {
                 flex-direction: column;
             }
+            
+            .categories-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .modes-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -549,8 +717,8 @@
             <h1>Ia-ți permisul din prima!</h1>
             
             <p class="subtitle">
-                Pregătește-te pentru examenul auto cu toate cele 1300+ întrebări oficiale DRPCIV. 
-                Alătură-te celor peste 100.000 de șoferi care au reușit cu iPermis.
+                Pregătește-te pentru examenul auto cu toate cele <strong>2990+ întrebări oficiale DRPCIV</strong> 
+                pentru toate categoriile inclusiv <strong>redobândire</strong>. Alătură-te celor peste 100.000 de șoferi care au reușit cu iPermis.
             </p>
             
             <div class="cta-container">
@@ -579,16 +747,84 @@
             
             <div class="stats">
                 <div class="stat">
-                    <div class="stat-value">1300+</div>
+                    <div class="stat-value">2990+</div>
                     <div class="stat-label">Întrebări Oficiale</div>
                 </div>
                 <div class="stat">
-                    <div class="stat-value">100K+</div>
-                    <div class="stat-label">Utilizatori</div>
+                    <div class="stat-value">5</div>
+                    <div class="stat-label">Categorii + Redobândire</div>
                 </div>
                 <div class="stat">
                     <div class="stat-value">87%</div>
                     <div class="stat-label">Rată de Succes</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="categories-section">
+        <h2 class="section-title">Categorii Disponibile</h2>
+        <p class="section-subtitle">Toate întrebările oficiale DRPCIV pentru fiecare categorie de permis, inclusiv pentru redobândire</p>
+        
+        <div class="categories-grid">
+            <div class="category-card">
+                <div class="category-icon">🏍️</div>
+                <div class="category-name">Categoria A</div>
+                <div class="category-desc">A, A1, A2, AM - Motociclete</div>
+                <div class="category-count">723 întrebări</div>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">🚗</div>
+                <div class="category-name">Categoria B</div>
+                <div class="category-desc">B, B1, Tr - Autoturisme</div>
+                <div class="category-count">1493 întrebări</div>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">🚛</div>
+                <div class="category-name">Categoria C</div>
+                <div class="category-desc">C, C1 - Autocamioane</div>
+                <div class="category-count">151 întrebări</div>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">🚌</div>
+                <div class="category-name">Categoria D</div>
+                <div class="category-desc">D, D1, Tb, Tv - Autobuze</div>
+                <div class="category-count">56 întrebări</div>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">🔄</div>
+                <div class="category-name">Redobândire</div>
+                <div class="category-desc">Redobândirea permisului</div>
+                <div class="category-count">568 întrebări</div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="modes-section">
+        <h2 class="section-title">Moduri de Studiu</h2>
+        <p class="section-subtitle">Două moduri optimizate pentru a te pregăti eficient</p>
+        
+        <div class="modes-grid">
+            <div class="mode-card learning">
+                <div class="mode-icon">📚</div>
+                <h3>Mod Învățare</h3>
+                <p>Exersează la ritmul tău cu feedback instant după fiecare întrebare</p>
+                <div class="mode-features">
+                    <span class="mode-feature">✓ Feedback instant</span>
+                    <span class="mode-feature">✓ Fără limită de timp</span>
+                    <span class="mode-feature">✓ Explicații detaliate</span>
+                    <span class="mode-feature">✓ Continuă de unde ai rămas</span>
+                </div>
+            </div>
+            <div class="mode-card exam">
+                <div class="mode-icon">⏱️</div>
+                <h3>Mod Examen</h3>
+                <p>Simulare completă a examenului real cu toate condițiile oficiale</p>
+                <div class="mode-features">
+                    <span class="mode-feature">✓ Cronometru oficial</span>
+                    <span class="mode-feature">✓ Număr exact de întrebări</span>
+                    <span class="mode-feature">✓ Posibilitate de skip</span>
+                    <span class="mode-feature">✓ Rezultat ca la examen</span>
                 </div>
             </div>
         </div>
@@ -601,37 +837,37 @@
             <div class="feature-card">
                 <div class="feature-icon">📚</div>
                 <h3>Întrebări Oficiale DRPCIV</h3>
-                <p>Toate cele 1300+ întrebări actualizate pentru examenul auto, exact ca la examenul real.</p>
+                <p>Toate cele 2990+ întrebări actualizate pentru examenul auto, exact ca la examenul real, pentru toate categoriile.</p>
             </div>
             
             <div class="feature-card">
-                <div class="feature-icon">🎯</div>
-                <h3>Două Moduri de Studiu</h3>
-                <p>Modul Învățare pentru practică și Modul Examen cu cronometru pentru simulare reală.</p>
+                <div class="feature-icon">🔄</div>
+                <h3>Întrebări Redobândire</h3>
+                <p>568 întrebări dedicate pentru redobândirea permisului de conducere, cu simulare examen de 15 întrebări în 20 minute.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🚦</div>
+                <h3>Indicatoare Rutiere</h3>
+                <p>8 categorii de indicatoare rutiere cu imagini și explicații: avertizare, prioritate, interzicere, obligare, orientare și altele.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">📖</div>
+                <h3>Legislație Rutieră</h3>
+                <p>Codul Rutier complet în 10 capitole: reguli de circulație, semnalizare, infracțiuni, contravenții și dispoziții legale.</p>
             </div>
             
             <div class="feature-card">
                 <div class="feature-icon">📊</div>
                 <h3>Statistici Detaliate</h3>
-                <p>Urmărește-ți progresul, vezi unde greșești și îmbunătățește-ți scorul pas cu pas.</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">💡</div>
-                <h3>Explicații Complete</h3>
-                <p>Fiecare întrebare are explicații detaliate pentru a înțelege corect legislația rutieră.</p>
+                <p>Urmărește-ți progresul, vezi unde greșești cel mai des și monitorizează-ți pregătirea pentru examen în timp real.</p>
             </div>
             
             <div class="feature-card">
                 <div class="feature-icon">📴</div>
                 <h3>Funcționează Offline</h3>
-                <p>Studiază oriunde, oricând. Nu ai nevoie de internet - toate întrebările sunt pe telefon.</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">✨</div>
-                <h3>Design Modern</h3>
-                <p>Interfață elegantă optimizată pentru iOS și Android, cu suport pentru modul întunecat.</p>
+                <p>Studiază oriunde, oricând. Nu ai nevoie de internet - toate întrebările și conținutul sunt salvate pe telefon.</p>
             </div>
         </div>
     </section>
@@ -645,17 +881,42 @@
         </div>
     </section>
     
-    <section class="categories-section">
-        <h2 class="section-title">Categorii Disponibile</h2>
-        <div class="categories-grid">
-            <span class="category-tag">🏍️ Categoria A</span>
-            <span class="category-tag">🚗 Categoria B</span>
-            <span class="category-tag">🚛 Categoria C</span>
-            <span class="category-tag">🚌 Categoria D</span>
-            <span class="category-tag">🚚 Categoria E</span>
-            <span class="category-tag">📖 Legislație</span>
-            <span class="category-tag">🚦 Semne Rutiere</span>
-            <span class="category-tag">🏥 Prim Ajutor</span>
+    <section class="extras-section">
+        <h2 class="section-title">Și multe altele...</h2>
+        
+        <div class="extras-grid">
+            <div class="extra-item">
+                <span class="extra-icon">🔍</span>
+                <span class="extra-text">Căutare întrebări</span>
+            </div>
+            <div class="extra-item">
+                <span class="extra-icon">❤️</span>
+                <span class="extra-text">Întrebări favorite</span>
+            </div>
+            <div class="extra-item">
+                <span class="extra-icon">📱</span>
+                <span class="extra-text">Suport iPad</span>
+            </div>
+            <div class="extra-item">
+                <span class="extra-icon">🌙</span>
+                <span class="extra-text">Mod întunecat</span>
+            </div>
+            <div class="extra-item">
+                <span class="extra-icon">🔔</span>
+                <span class="extra-text">Reminder-uri zilnice</span>
+            </div>
+            <div class="extra-item">
+                <span class="extra-icon">⏸️</span>
+                <span class="extra-text">Continuă sesiunea</span>
+            </div>
+            <div class="extra-item">
+                <span class="extra-icon">📝</span>
+                <span class="extra-text">Istoric sesiuni</span>
+            </div>
+            <div class="extra-item">
+                <span class="extra-icon">🎨</span>
+                <span class="extra-text">Personalizare text</span>
+            </div>
         </div>
     </section>
     
