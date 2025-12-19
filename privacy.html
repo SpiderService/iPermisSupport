@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Politica de Confidențialitate - iPermis</title>
+    <meta name="description" content="Politica de confidențialitate pentru aplicația iPermis">
+    <meta name="apple-itunes-app" content="app-id=1471760803">
+    <meta name="google-play-app" content="app-id=com.tapsty.chestionareautoro">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #22c55e;
+            --primary-light: #4ade80;
+            --glass-bg: rgba(255, 255, 255, 0.06);
+            --glass-border: rgba(255, 255, 255, 0.12);
+            --glass-highlight: rgba(255, 255, 255, 0.2);
+            --text-primary: #ffffff;
+            --text-secondary: #94a3b8;
+            --text-tertiary: #64748b;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(145deg, #0a0a12 0%, #0d1a2d 30%, #0a1628 60%, #070d14 100%);
+            min-height: 100vh;
+            color: var(--text-primary);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+        
+        /* Background effects */
+        .bg-effects {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
+        
+        .bg-gradient {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(34, 197, 94, 0.2) 0%, transparent 70%);
+            top: -200px;
+            left: -100px;
+            filter: blur(80px);
+            animation: pulse-slow 15s ease-in-out infinite;
+        }
+        
+        .bg-gradient-2 {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+            bottom: -100px;
+            right: -50px;
+            filter: blur(60px);
+            animation: pulse-slow 20s ease-in-out infinite reverse;
+        }
+        
+        @keyframes pulse-slow {
+            0%, 100% { transform: scale(1) translate(0, 0); opacity: 0.5; }
+            50% { transform: scale(1.1) translate(20px, -20px); opacity: 0.7; }
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 50px 24px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            margin-bottom: 30px;
+            transition: all 0.2s ease;
+        }
+        
+        .back-link:hover {
+            color: var(--text-primary);
+            transform: translateX(-4px);
+        }
+        
+        .back-link svg {
+            width: 18px;
+            height: 18px;
+        }
+        
+        h1 {
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            font-weight: 800;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+        
+        .last-updated {
+            display: inline-block;
+            background: rgba(34, 197, 94, 0.15);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            color: var(--primary-light);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-top: 16px;
+        }
+        
+        /* Glass Card */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 28px;
+            margin-bottom: 20px;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 0.8s ease-out backwards;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--glass-highlight), transparent);
+        }
+        
+        .glass-card:nth-child(2) { animation-delay: 0.1s; }
+        .glass-card:nth-child(3) { animation-delay: 0.15s; }
+        .glass-card:nth-child(4) { animation-delay: 0.2s; }
+        .glass-card:nth-child(5) { animation-delay: 0.25s; }
+        .glass-card:nth-child(6) { animation-delay: 0.3s; }
+        .glass-card:nth-child(7) { animation-delay: 0.35s; }
+        .glass-card:nth-child(8) { animation-delay: 0.4s; }
+        .glass-card:nth-child(9) { animation-delay: 0.45s; }
+        
+        .glass-card h2 {
+            color: var(--primary-light);
+            margin-bottom: 16px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .glass-card h2 .icon {
+            font-size: 1.3rem;
+        }
+        
+        .glass-card p {
+            color: var(--text-secondary);
+            margin-bottom: 14px;
+            font-size: 0.95rem;
+        }
+        
+        .glass-card p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .glass-card strong {
+            color: var(--text-primary);
+        }
+        
+        .glass-card ul {
+            color: var(--text-secondary);
+            margin-left: 20px;
+            margin-bottom: 14px;
+        }
+        
+        .glass-card li {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            position: relative;
+            padding-left: 8px;
+        }
+        
+        .glass-card li::marker {
+            color: var(--primary-light);
+        }
+        
+        .glass-card a {
+            color: var(--primary-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+        
+        .glass-card a:hover {
+            color: var(--text-primary);
+            text-decoration: underline;
+        }
+        
+        /* Highlight box */
+        .highlight-box {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 16px;
+        }
+        
+        .highlight-box p {
+            color: #4ade80;
+            margin: 0;
+            font-weight: 600;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid var(--glass-border);
+            color: var(--text-tertiary);
+            animation: fadeIn 0.8s ease-out 0.5s backwards;
+        }
+        
+        footer a {
+            color: var(--primary-light);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        footer a:hover {
+            color: var(--text-primary);
+        }
+        
+        .footer-links {
+            margin-bottom: 16px;
+        }
+        
+        .footer-links a {
+            margin: 0 12px;
+        }
+        
+        .copyright {
+            font-size: 0.85rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 16px;
+            }
+            
+            .glass-card {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-effects">
+        <div class="bg-gradient"></div>
+        <div class="bg-gradient-2"></div>
+    </div>
+    
+    <div class="container">
+        <header>
+            <a href="index.html" class="back-link">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                </svg>
+                Înapoi la Suport
+            </a>
+            <h1>Politica de Confidențialitate</h1>
+            <p class="subtitle">iPermis - Chestionare Auto România</p>
+            <span class="last-updated">Ultima actualizare: Decembrie 2024</span>
+        </header>
+        
+        <div class="glass-card">
+            <h2><span class="icon">📋</span> Prezentare Generală</h2>
+            <p>iPermis („noi", „nostru" sau „aplicația") este dedicată protejării confidențialității tale. Această Politică de Confidențialitate explică modul în care gestionăm informațiile tale când folosești aplicația noastră mobilă pe iOS sau Android.</p>
+        </div>
+        
+        <div class="glass-card">
+            <h2><span class="icon">🔒</span> Informații pe Care le Colectăm</h2>
+            <div class="highlight-box">
+                <p>✓ Nu colectăm nicio informație personală identificabilă.</p>
+            </div>
+            <p>iPermis este proiectat cu confidențialitatea pe primul loc:</p>
+            <ul>
+                <li>Tot progresul și statisticile tale sunt stocate local pe dispozitivul tău</li>
+                <li>Nu necesităm înregistrarea unui cont</li>
+                <li>Nu colectăm nume, email-uri sau alte informații de identificare</li>
+                <li>Nu partajăm nicio dată cu terți</li>
+            </ul>
+        </div>
+        
+        <div class="glass-card">
+            <h2><span class="icon">💾</span> Stocarea Datelor</h2>
+            <p>Toate datele aplicației, inclusiv:</p>
+            <ul>
+                <li>Progresul tău la chestionare</li>
+                <li>Scorurile și statisticile testelor</li>
+                <li>Istoricul sesiunilor</li>
+                <li>Întrebările favorite</li>
+                <li>Setările aplicației</li>
+            </ul>
+            <p>...sunt stocate exclusiv pe dispozitivul tău folosind stocarea securizată a sistemului de operare (iOS sau Android). Aceste date nu sunt transmise niciodată către servere externe.</p>
+        </div>
+        
+        <div class="glass-card">
+            <h2><span class="icon">🗑️</span> Ștergerea Datelor</h2>
+            <p>Poți șterge toate datele tale oricând prin:</p>
+            <ul>
+                <li>Utilizarea opțiunii „Resetează progresul" din Setările aplicației</li>
+                <li>Ștergerea aplicației de pe dispozitiv</li>
+            </ul>
+        </div>
+        
+        <div class="glass-card">
+            <h2><span class="icon">📢</span> Publicitate</h2>
+            <p>Versiunea gratuită a aplicației poate afișa reclame prin Google AdMob. Google poate colecta date anonimizate pentru a afișa reclame relevante. Poți consulta <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Politica de Confidențialitate Google</a> pentru mai multe detalii.</p>
+            <p>Utilizatorii Premium nu văd nicio reclamă și nu sunt supuși colectării de date publicitare.</p>
+        </div>
+        
+        <div class="glass-card">
+            <h2><span class="icon">💳</span> Achiziții În Aplicație</h2>
+            <p>Aplicația oferă abonamente Premium procesate prin:</p>
+            <ul>
+                <li><strong>iOS:</strong> Apple App Store - conform <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Politicii de Confidențialitate Apple</a></li>
+                <li><strong>Android:</strong> Google Play Store - conform <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Politicii de Confidențialitate Google</a></li>
+            </ul>
+            <p>Nu avem acces la informațiile tale de plată - toate tranzacțiile sunt gestionate de platforma respectivă.</p>
+        </div>
+        
+        <div class="glass-card">
+            <h2><span class="icon">🔗</span> Servicii Terțe</h2>
+            <p>Aplicația poate conține linkuri către documentația oficială sau resurse externe. Când accesezi aceste linkuri, vei fi direcționat către site-uri externe guvernate de propriile lor politici de confidențialitate.</p>
+        </div>
+        
+        <div class="glass-card">
+            <h2><span class="icon">👶</span> Confidențialitatea Copiilor</h2>
+            <p>Aplicația noastră nu colectează intenționat informații de la copii sub 13 ani. Aplicația este destinată persoanelor care se pregătesc pentru examenul auto, de obicei cu vârsta de peste 18 ani.</p>
+        </div>
+        
+        <div class="glass-card">
+            <h2><span class="icon">🔄</span> Modificări ale Acestei Politici</h2>
+            <p>Este posibil să actualizăm această Politică de Confidențialitate periodic. Orice modificări vor fi reflectate pe această pagină cu o dată de revizuire actualizată.</p>
+        </div>
+        
+        <div class="glass-card">
+            <h2><span class="icon">📧</span> Contactează-ne</h2>
+            <p>Dacă ai întrebări despre această Politică de Confidențialitate, te rugăm să ne contactezi la:</p>
+            <p><a href="mailto:spiderservicedev@gmail.com">spiderservicedev@gmail.com</a></p>
+        </div>
+        
+        <footer>
+            <div class="footer-links">
+                <a href="index.html">Suport</a> · 
+                <a href="terms.html">Termeni și Condiții</a> · 
+                <a href="marketing.html">Despre Aplicație</a>
+            </div>
+            <p class="copyright">© 2025 Spider Service SRL. Toate drepturile rezervate.</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termeni și Condiții - iPermis</title>
+    <meta name="description" content="Termeni și Condiții pentru aplicația iPermis">
+    <meta name="apple-itunes-app" content="app-id=1471760803">
+    <meta name="google-play-app" content="app-id=com.tapsty.chestionareautoro">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #22c55e;
+            --primary-light: #4ade80;
+            --glass-bg: rgba(255, 255, 255, 0.06);
+            --glass-border: rgba(255, 255, 255, 0.12);
+            --glass-highlight: rgba(255, 255, 255, 0.2);
+            --text-primary: #ffffff;
+            --text-secondary: #94a3b8;
+            --text-tertiary: #64748b;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(145deg, #0a0a12 0%, #0d1a2d 30%, #0a1628 60%, #070d14 100%);
+            min-height: 100vh;
+            color: var(--text-primary);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+        
+        /* Background effects */
+        .bg-effects {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
+        
+        .bg-gradient {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+            top: -200px;
+            right: -100px;
+            filter: blur(80px);
+            animation: pulse-slow 15s ease-in-out infinite;
+        }
+        
+        .bg-gradient-2 {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(34, 197, 94, 0.2) 0%, transparent 70%);
+            bottom: -100px;
+            left: -50px;
+            filter: blur(60px);
+            animation: pulse-slow 20s ease-in-out infinite reverse;
+        }
+        
+        @keyframes pulse-slow {
+            0%, 100% { transform: scale(1) translate(0, 0); opacity: 0.5; }
+            50% { transform: scale(1.1) translate(20px, -20px); opacity: 0.7; }
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 50px 24px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            margin-bottom: 30px;
+            transition: all 0.2s ease;
+        }
+        
+        .back-link:hover {
+            color: var(--text-primary);
+            transform: translateX(-4px);
+        }
+        
+        .back-link svg {
+            width: 18px;
+            height: 18px;
+        }
+        
+        h1 {
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            font-weight: 800;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+        
+        .last-updated {
+            display: inline-block;
+            background: rgba(99, 102, 241, 0.15);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            color: #818cf8;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-top: 16px;
+        }
+        
+        /* Glass Card */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 28px;
+            margin-bottom: 20px;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 0.8s ease-out backwards;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--glass-highlight), transparent);
+        }
+        
+        .glass-card:nth-child(2) { animation-delay: 0.1s; }
+        .glass-card:nth-child(3) { animation-delay: 0.15s; }
+        .glass-card:nth-child(4) { animation-delay: 0.2s; }
+        .glass-card:nth-child(5) { animation-delay: 0.25s; }
+        .glass-card:nth-child(6) { animation-delay: 0.3s; }
+        .glass-card:nth-child(7) { animation-delay: 0.35s; }
+        .glass-card:nth-child(8) { animation-delay: 0.4s; }
+        .glass-card:nth-child(9) { animation-delay: 0.45s; }
+        .glass-card:nth-child(10) { animation-delay: 0.5s; }
+        .glass-card:nth-child(11) { animation-delay: 0.55s; }
+        .glass-card:nth-child(12) { animation-delay: 0.6s; }
+        
+        .glass-card h2 {
+            color: var(--primary-light);
+            margin-bottom: 16px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .glass-card h2 .icon {
+            font-size: 1.3rem;
+        }
+        
+        .section-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 26px;
+            height: 26px;
+            background: var(--primary);
+            color: #0f172a;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+        
+        .glass-card p {
+            color: var(--text-secondary);
+            margin-bottom: 14px;
+            font-size: 0.95rem;
+        }
+        
+        .glass-card p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .glass-card strong {
+            color: var(--text-primary);
+        }
+        
+        .glass-card ul {
+            color: var(--text-secondary);
+            margin-left: 20px;
+            margin-bottom: 14px;
+        }
+        
+        .glass-card li {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            position: relative;
+            padding-left: 8px;
+        }
+        
+        .glass-card li::marker {
+            color: var(--primary-light);
+        }
+        
+        .glass-card a {
+            color: var(--primary-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+        
+        .glass-card a:hover {
+            color: var(--text-primary);
+            text-decoration: underline;
+        }
+        
+        /* Warning box */
+        .warning-box {
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 16px;
+        }
+        
+        .warning-box p {
+            color: #fbbf24;
+            margin: 0;
+            font-weight: 600;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        
+        /* Info box */
+        .info-box {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 16px;
+        }
+        
+        .info-box p {
+            color: #60a5fa;
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        /* Pricing table */
+        .pricing-item {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.2);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .pricing-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .pricing-name {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+        
+        .pricing-info {
+            text-align: right;
+        }
+        
+        .pricing-info small {
+            color: var(--text-tertiary);
+            font-size: 0.8rem;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid var(--glass-border);
+            color: var(--text-tertiary);
+            animation: fadeIn 0.8s ease-out 0.6s backwards;
+        }
+        
+        footer a {
+            color: var(--primary-light);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        footer a:hover {
+            color: var(--text-primary);
+        }
+        
+        .footer-links {
+            margin-bottom: 16px;
+        }
+        
+        .footer-links a {
+            margin: 0 12px;
+        }
+        
+        .copyright {
+            font-size: 0.85rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 16px;
+            }
+            
+            .glass-card {
+                padding: 22px;
+            }
+            
+            .pricing-item {
+                flex-direction: column;
+                gap: 8px;
+                text-align: center;
+            }
+            
+            .pricing-info {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-effects">
+        <div class="bg-gradient"></div>
+        <div class="bg-gradient-2"></div>
+    </div>
+    
+    <div class="container">
+        <header>
+            <a href="index.html" class="back-link">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                </svg>
+                Înapoi la Suport
+            </a>
+            <h1>Termeni și Condiții</h1>
+            <p class="subtitle">iPermis - Chestionare Auto România</p>
+            <span class="last-updated">Ultima actualizare: Decembrie 2024</span>
+        </header>
+        
+        <div class="glass-card">
+            <h2><span class="section-number">1</span> Acordul cu Termenii</h2>
+            <p>Prin accesarea și utilizarea aplicației iPermis („Serviciul"), îți exprimi acordul de a fi legat de acești Termeni și Condiții. Dacă nu ești de acord cu vreo parte a termenilor, nu ai permisiunea de a folosi Serviciul.</p>
+        </div>
+        
+        <div class="glass-card">
+            <h2><span class="section-number">2</span> Descrierea Serviciului</h2>
+            <p>iPermis este o aplicație educațională mobilă disponibilă pe iOS și Android care oferă:</p>
+            <ul>
+                <li>Chestionare pentru pregătirea examenului auto DRPCIV</li>
+                <li>Teste de practică cu întrebări oficiale</li>
+                <li>Monitorizarea progresului și statistici</li>
+                <li>Informații legislative rutiere</li>
+                <li>Semne rutiere și explicații</li>
+            </ul>
+        </div>
+        
+        <div class="glass-card">
+            <h2><span class="section-number">3</span> Scop Educațional</h2>
+            <div class="warning-box">
+                <p>⚠️ Această aplicație este doar în scop educațional și nu garantează succesul la examenul auto.</p>
+            </div>
+            <p>Conținutul aplicației se bazează pe întrebările oficiale DRPCIV, dar utilizatorii ar trebui să consulte surse oficiale pentru cea mai actuală legislație și reglementări.</p>
+        </div>
+        
+        <div class="glass-card">
+            <h2><span class="section-number">4</span> Abonamente Premium</h2>
+            <p>iPermis oferă următoarele abonamente:</p>
+            
+            <div class="pricing-item">
+                <span class="pricing-name">Premium Săptămânal</span>
+                <div class="pricing-info">
+                    <small>Reînnoire automată</small>
+                </div>
+            </div>
+            
+            <div class="pricing-item">
+                <span class="pricing-name">Premium Lunar</span>
+                <div class="pricing-info">
+                    <small>Reînnoire automată</small>
+                </div>
+            </div>
+            
+            <div class="pricing-item">
+                <span class="pricing-name">Premium Anual</span>
+                <div class="pricing-info">
+                    <small>Reînnoire automată</small>
+                </div>
+            </div>
+            
+            <div class="pricing-item">
+                <span class="pricing-name">Acces pe Viață</span>
+                <div class="pricing-info">
+                    <small>Plată unică</small>
+                </div>
+            </div>
+            
+            <p style="margin-top: 16px; font-size: 0.9rem; color: var(--text-tertiary);">Prețurile sunt afișate în aplicație și pot varia în funcție de locație. Toate prețurile includ TVA unde este aplicabil.</p>
+        </div>
+        
+        <div class="glass-card">
+            <h2><span class="section-number">5</span> Reînnoire Automată</h2>
+            <p>Abonamentele cu reînnoire automată se reînnoiesc automat la sfârșitul perioadei curente, cu excepția cazului în care sunt anulate cu cel puțin 24 de ore înainte de sfârșitul perioadei curente.</p>
+            
+            <div class="info-box">
+                <p>ℹ️ Contul tău va fi debitat pentru reînnoire în ultimele 24 de ore ale perioadei curente, cu același cost ca abonamentul inițial.</p>
+            </div>
+        </div>
+        
+        <div class="glass-card">
+            <h2><span class="section-number">6</span> Perioadă de Probă Gratuită</h2>
+            <p>Putem oferi periodic o perioadă de probă gratuită. La sfârșitul perioadei de probă, abonamentul se va activa automat și contul tău va fi debitat, cu excepția cazului în care anulezi înainte de încheierea perioadei de probă.</p>
+            <p>Orice perioadă de probă neutilizată va fi pierdută când achiziționezi un abonament pentru serviciul respectiv.</p>
+        </div>
+        
+        <div class="glass-card">
+            <h2><span class="section-number">7</span> Anulare</h2>
+            <p>Poți anula abonamentul oricând:</p>
+            <ul>
+                <li><strong>iOS:</strong> Setări iPhone → [Numele tău] → Abonamente → iPermis → Anulează Abonamentul</li>
+                <li><strong>Android:</strong> Google Play Store → Meniu → Abonamente → iPermis → Anulează Abonamentul</li>
+            </ul>
+            <p>Anularea va intra în vigoare la sfârșitul perioadei de facturare curente. Nu se oferă rambursări pentru perioadele parțiale neutilizate.</p>
+        </div>
+        
+        <div class="glass-card">
+            <h2><span class="section-number">8</span> Politica de Rambursare</h2>
+            <p>Toate achizițiile sunt procesate de Apple (pentru iOS) sau Google (pentru Android). Cererile de rambursare trebuie adresate direct Apple sau Google conform politicilor lor:</p>
+            <ul>
+                <li><a href="https://support.apple.com/ro-ro/HT204084" target="_blank" rel="noopener">Politica de rambursare Apple</a></li>
+                <li><a href="https://support.google.com/googleplay/answer/2479637" target="_blank" rel="noopener">Politica de rambursare Google Play</a></li>
+            </ul>
+        </div>
+        
+        <div class="glass-card">
+            <h2><span class="section-number">9</span> Proprietate Intelectuală</h2>
+            <p>Serviciul și conținutul său original (excluzând materialele DRPCIV, care aparțin Direcției Regim Permise de Conducere și Înmatriculare a Vehiculelor), funcționalitățile și designul sunt și vor rămâne proprietatea exclusivă a Spider Service SRL.</p>
+        </div>
+        
+        <div class="glass-card">
+            <h2><span class="section-number">10</span> Licență de Utilizare</h2>
+            <p>Îți acordăm o licență limitată, ne-exclusivă, netransferabilă și revocabilă pentru a utiliza aplicația pentru uz personal și non-comercial, sub rezerva acestor Termeni.</p>
+            <p>Nu ai voie să:</p>
+            <ul>
+                <li>Modifici, distribui sau reproduci conținutul aplicației</li>
+                <li>Folosești aplicația în scopuri comerciale fără autorizare</li>
+                <li>Încerci să faci inginerie inversă sau să compromiți securitatea aplicației</li>
+            </ul>
+        </div>
+        
+        <div class="glass-card">
+            <h2><span class="section-number">11</span> Limitarea Răspunderii</h2>
+            <p>În nicio circumstanță Spider Service SRL sau directorii, angajații, partenerii, agenții, furnizorii sau afiliații săi nu vor fi răspunzători pentru daune indirecte, incidentale, speciale, consecvente sau punitive rezultate din utilizarea sau incapacitatea de a utiliza Serviciul.</p>
+        </div>
+        
+        <div class="glass-card">
+            <h2><span class="section-number">12</span> Utilizare Acceptabilă</h2>
+            <p>Ești de acord să utilizezi Serviciul doar în scopuri legale și în conformitate cu acești Termeni. Nu ai voie să:</p>
+            <ul>
+                <li>Încalci orice legi sau reglementări aplicabile</li>
+                <li>Încerci să obții acces neautorizat la sistemele aplicației</li>
+                <li>Interferezi cu funcționarea corectă a Serviciului</li>
+            </ul>
+        </div>
+        
+        <div class="glass-card">
+            <h2><span class="section-number">13</span> Modificări</h2>
+            <p>Ne rezervăm dreptul de a modifica sau înlocui acești Termeni în orice moment. Îți vom notifica despre modificările semnificative publicând noii termeni în aplicație sau pe site-ul nostru.</p>
+        </div>
+        
+        <div class="glass-card">
+            <h2><span class="section-number">14</span> Legea Aplicabilă</h2>
+            <p>Acești Termeni vor fi guvernați și interpretați în conformitate cu legislația din România, fără a ține cont de prevederile sale privind conflictele de legi.</p>
+        </div>
+        
+        <div class="glass-card">
+            <h2><span class="section-number">15</span> Contact</h2>
+            <p>Pentru întrebări despre acești Termeni și Condiții, te rugăm să ne contactezi la:</p>
+            <p><a href="mailto:spiderservicedev@gmail.com">spiderservicedev@gmail.com</a></p>
+        </div>
+        
+        <footer>
+            <div class="footer-links">
+                <a href="index.html">Suport</a> · 
+                <a href="privacy.html">Politica de Confidențialitate</a> · 
+                <a href="marketing.html">Despre Aplicație</a>
+            </div>
+            <p class="copyright">© 2025 Spider Service SRL. Toate drepturile rezervate.</p>
+        </footer>
+    </div>
+</body>
+</html>

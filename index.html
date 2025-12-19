@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iPermis - Suport</title>
+    <meta name="description" content="Suport pentru aplicația iPermis - Chestionare Auto România">
+    <meta name="apple-itunes-app" content="app-id=1471760803">
+    <meta name="google-play-app" content="app-id=com.tapsty.chestionareautoro">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0073CC;
+            --primary-light: #1a8cff;
+            --primary-dark: #005599;
+            --accent: #22c55e;
+            --glass-bg: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.15);
+            --glass-highlight: rgba(255, 255, 255, 0.25);
+            --text-primary: #ffffff;
+            --text-secondary: #94a3b8;
+            --text-tertiary: #64748b;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(145deg, #0a0a12 0%, #0d1a2d 30%, #0a1628 60%, #070d14 100%);
+            min-height: 100vh;
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Animated background orbs */
+        .bg-orbs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
+        
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.4;
+            animation: float 20s ease-in-out infinite;
+        }
+        
+        .orb-1 {
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+            top: -200px;
+            left: -100px;
+            animation-delay: 0s;
+        }
+        
+        .orb-2 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, #3b82f6 0%, transparent 70%);
+            top: 50%;
+            right: -100px;
+            animation-delay: -5s;
+        }
+        
+        .orb-3 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+            bottom: -150px;
+            left: 30%;
+            opacity: 0.2;
+            animation-delay: -10s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(30px, -30px) scale(1.05); }
+            50% { transform: translate(-20px, 20px) scale(0.95); }
+            75% { transform: translate(20px, 10px) scale(1.02); }
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .logo {
+            width: 110px;
+            height: 110px;
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 50%, #15803d 100%);
+            border-radius: 28px;
+            margin: 0 auto 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 55px;
+            box-shadow: 
+                0 20px 50px rgba(34, 197, 94, 0.4),
+                0 0 0 1px var(--glass-border),
+                inset 0 1px 0 var(--glass-highlight);
+            position: relative;
+            animation: logoGlow 3s ease-in-out infinite;
+        }
+        
+        @keyframes logoGlow {
+            0%, 100% { box-shadow: 0 20px 50px rgba(34, 197, 94, 0.4), 0 0 0 1px var(--glass-border), inset 0 1px 0 var(--glass-highlight); }
+            50% { box-shadow: 0 25px 60px rgba(34, 197, 94, 0.6), 0 0 0 1px var(--glass-border), inset 0 1px 0 var(--glass-highlight); }
+        }
+        
+        h1 {
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            font-weight: 800;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 50%, #ffffff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+        
+        /* Glass Card */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 28px;
+            margin-bottom: 24px;
+            border: 1px solid var(--glass-border);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 var(--glass-highlight);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 0.8s ease-out backwards;
+        }
+        
+        .glass-card:nth-child(2) { animation-delay: 0.1s; }
+        .glass-card:nth-child(3) { animation-delay: 0.2s; }
+        .glass-card:nth-child(4) { animation-delay: 0.3s; }
+        .glass-card:nth-child(5) { animation-delay: 0.4s; }
+        
+        .glass-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 
+                0 16px 48px rgba(0, 0, 0, 0.4),
+                0 0 0 1px var(--primary),
+                inset 0 1px 0 var(--glass-highlight);
+        }
+        
+        .glass-card h2 {
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .glass-card h2::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: linear-gradient(180deg, var(--accent), #16a34a);
+            border-radius: 2px;
+        }
+        
+        /* Contact Button */
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--accent) 0%, #16a34a 100%);
+            color: white;
+            padding: 16px 28px;
+            border-radius: 16px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 
+                0 10px 30px rgba(34, 197, 94, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .contact-btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 
+                0 15px 40px rgba(34, 197, 94, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+        
+        .contact-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+        
+        /* FAQ Items */
+        .faq-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .faq-item h3 {
+            color: #e2e8f0;
+            font-size: 1rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        
+        .faq-item h3::before {
+            content: '❓';
+            font-size: 0.9rem;
+        }
+        
+        .faq-item p {
+            color: var(--text-secondary);
+            padding-left: 28px;
+            font-size: 0.95rem;
+        }
+        
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 16px;
+        }
+        
+        .feature {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.2);
+            padding: 20px 16px;
+            border-radius: 16px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .feature:hover {
+            background: rgba(34, 197, 94, 0.15);
+            border-color: rgba(34, 197, 94, 0.4);
+            transform: translateY(-2px);
+        }
+        
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .feature-text {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #e2e8f0;
+        }
+        
+        /* Platform Badges */
+        .platform-badges {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 24px;
+            flex-wrap: wrap;
+        }
+        
+        .platform-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: 10px 18px;
+            border-radius: 12px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .platform-badge svg {
+            width: 20px;
+            height: 20px;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid var(--glass-border);
+            color: var(--text-tertiary);
+            animation: fadeInUp 0.8s ease-out 0.5s backwards;
+        }
+        
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        footer a:hover {
+            color: var(--text-primary);
+            text-decoration: underline;
+        }
+        
+        .footer-links {
+            margin-bottom: 16px;
+        }
+        
+        .footer-links a {
+            margin: 0 12px;
+        }
+        
+        .copyright {
+            font-size: 0.85rem;
+            line-height: 1.8;
+        }
+        
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                padding: 24px 16px;
+            }
+            
+            .glass-card {
+                padding: 22px;
+            }
+            
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .platform-badges {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+    
+    <div class="container">
+        <header>
+            <div class="logo">🚗</div>
+            <h1>iPermis</h1>
+            <p class="subtitle">Chestionare Auto România</p>
+            <div class="platform-badges">
+                <span class="platform-badge">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                    iOS
+                </span>
+                <span class="platform-badge">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.523 2.226a.75.75 0 0 0-1.046 1.046l.577.577-2.51 2.51A7.472 7.472 0 0 0 12 5.75a7.472 7.472 0 0 0-2.544.609l-2.51-2.51.577-.577a.75.75 0 0 0-1.046-1.046l-.577.577-.577-.577a.75.75 0 1 0-1.046 1.046l.577.577-.577.577a.75.75 0 0 0 1.046 1.046l.577-.577 2.51 2.51A7.472 7.472 0 0 0 4.5 12.25c0 4.142 3.358 7.5 7.5 7.5s7.5-3.358 7.5-7.5a7.472 7.472 0 0 0-3.91-6.594l2.51-2.51.577.577a.75.75 0 1 0 1.046-1.046l-.577-.577.577-.577a.75.75 0 0 0-1.046-1.046l-.577.577-.577-.577zM12 7.25a5 5 0 1 1 0 10 5 5 0 0 1 0-10z"/></svg>
+                    Android
+                </span>
+            </div>
+        </header>
+        
+        <div class="glass-card">
+            <h2>Contactează Suportul</h2>
+            <p style="margin-bottom: 20px; color: var(--text-secondary);">
+                Ai întrebări sau ai nevoie de ajutor? Echipa noastră de suport îți stă la dispoziție.
+            </p>
+            <a href="mailto:spiderservicedev@gmail.com" class="contact-btn">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+                Trimite Email
+            </a>
+        </div>
+        
+        <div class="glass-card">
+            <h2>Întrebări Frecvente</h2>
+            
+            <div class="faq-item">
+                <h3>Cum îmi resetez progresul?</h3>
+                <p>Mergi la tab-ul Setări și selectează „Resetează progresul". Această acțiune va șterge toate statisticile și istoricul sesiunilor tale.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Câte întrebări conține aplicația?</h3>
+                <p>Aplicația conține toate cele 1300+ întrebări oficiale DRPCIV pentru categoriile A, B, C, D și E, actualizate constant.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Ce este modul Premium?</h3>
+                <p>Premium îți oferă acces nelimitat la examene, zero reclame, statistici detaliate și explicații complete pentru toate întrebările.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Cum anulez abonamentul Premium?</h3>
+                <p><strong>iOS:</strong> Setări iPhone → Apple ID → Abonamente<br>
+                <strong>Android:</strong> Google Play Store → Meniu → Abonamente</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Pot folosi aplicația offline?</h3>
+                <p>Da! Toate întrebările și explicațiile sunt disponibile offline. Poți studia oriunde fără conexiune la internet.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Cum restaurez achizițiile anterioare?</h3>
+                <p>Mergi la Setări în aplicație și apasă pe „Restaurează achiziția". Asigură-te că ești autentificat cu același cont (Apple ID sau Google).</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Sunt întrebările actualizate?</h3>
+                <p>Da! Întrebările sunt actualizate constant conform ultimelor modificări DRPCIV pentru examenul auto.</p>
+            </div>
+        </div>
+        
+        <div class="glass-card">
+            <h2>Funcționalități</h2>
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon">📚</div>
+                    <div class="feature-text">1300+ Întrebări</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">⏱️</div>
+                    <div class="feature-text">Teste Cronometrate</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📊</div>
+                    <div class="feature-text">Statistici Detaliate</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📱</div>
+                    <div class="feature-text">iOS & Android</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🌙</div>
+                    <div class="feature-text">Mod Întunecat</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📴</div>
+                    <div class="feature-text">Funcționează Offline</div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <div class="footer-links">
+                <a href="privacy.html">Politica de Confidențialitate</a> · 
+                <a href="terms.html">Termeni și Condiții</a> · 
+                <a href="marketing.html">Despre Aplicație</a>
+            </div>
+            <p class="copyright">
+                © 2025 Spider Service SRL. Toate drepturile rezervate.<br>
+                DRPCIV și mărcile asociate aparțin deținătorilor respectivi.
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
