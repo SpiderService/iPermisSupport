@@ -102,25 +102,26 @@
             padding: 12px;
             margin-top: 12px;
             font-family: monospace;
-            font-size: 18px;
+            font-size: 20px;
             font-weight: bold;
             letter-spacing: 2px;
-            cursor: pointer;
-            transition: background 0.2s;
+            user-select: all;
+            -webkit-user-select: all;
         }
         
-        .referral-code:hover {
-            background: rgba(0,0,0,0.3);
+        .code-instructions {
+            font-size: 13px;
+            opacity: 0.85;
+            margin-top: 12px;
+            line-height: 1.4;
+            padding: 10px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
         }
         
-        .referral-code.copied {
-            background: rgba(34, 197, 94, 0.3);
-        }
-        
-        .copy-hint {
-            font-size: 12px;
-            opacity: 0.7;
-            margin-top: 8px;
+        .code-instructions strong {
+            display: block;
+            margin-bottom: 4px;
         }
         
         .features {
@@ -178,33 +179,6 @@
             font-size: 24px;
         }
         
-        .loading {
-            display: none;
-            margin-top: 20px;
-            font-size: 14px;
-            opacity: 0.8;
-        }
-        
-        .loading.show {
-            display: block;
-        }
-        
-        .spinner {
-            display: inline-block;
-            width: 16px;
-            height: 16px;
-            border: 2px solid rgba(255,255,255,0.3);
-            border-top-color: white;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-right: 8px;
-            vertical-align: middle;
-        }
-        
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-        
         footer {
             margin-top: 40px;
             font-size: 12px;
@@ -233,10 +207,15 @@
         <div class="bonus-card" id="bonusCard">
             <h3>🎁 Ai primit o invitație!</h3>
             <p>Un prieten te-a invitat să înveți pentru permis cu iPermis.</p>
-            <div class="referral-code" id="referralCode" onclick="copyCode()">
+            <div class="referral-code" id="referralCode">
                 <!-- Will be filled by JS -->
             </div>
-            <p class="copy-hint" id="copyHint">Apasă pentru a copia codul</p>
+            <div class="code-instructions">
+                <strong>📝 Cum folosești codul:</strong>
+                1. Descarcă aplicația de mai jos<br>
+                2. Mergi în Setări → Crește comunitatea<br>
+                3. Introdu codul pentru 1 examen gratuit!
+            </div>
         </div>
         
         <div class="features">
@@ -259,19 +238,14 @@
         </div>
         
         <div class="store-buttons">
-            <a href="#" class="store-btn ios" id="iosBtn">
+            <a href="https://apps.apple.com/app/id1471760803" class="store-btn ios" id="iosBtn">
                 <span class="store-icon">🍎</span>
                 <span>Descarcă pentru iPhone</span>
             </a>
-            <a href="#" class="store-btn android" id="androidBtn">
+            <a href="https://play.google.com/store/apps/details?id=com.tapsty.chestionareautoro" class="store-btn android" id="androidBtn">
                 <span class="store-icon">🤖</span>
                 <span>Descarcă pentru Android</span>
             </a>
-        </div>
-        
-        <div class="loading" id="loading">
-            <span class="spinner"></span>
-            <span>Te redirecționăm către magazin...</span>
         </div>
         
         <footer>
@@ -284,8 +258,6 @@
         // Configuration
         const APP_STORE_URL = 'https://apps.apple.com/app/id1471760803';
         const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.tapsty.chestionareautoro';
-        const IOS_SCHEME = 'ipermis://invite';
-        const ANDROID_SCHEME = 'intent://invite';
         
         // Get referral code from URL
         function getReferralCode() {
@@ -305,59 +277,6 @@
             return 'desktop';
         }
         
-        // Copy code to clipboard
-        function copyCode() {
-            const code = getReferralCode();
-            if (!code) return;
-            
-            navigator.clipboard.writeText(code).then(() => {
-                const codeEl = document.getElementById('referralCode');
-                const hintEl = document.getElementById('copyHint');
-                
-                codeEl.classList.add('copied');
-                hintEl.textContent = '✅ Cod copiat! Lipește-l în aplicație.';
-                
-                setTimeout(() => {
-                    codeEl.classList.remove('copied');
-                }, 2000);
-            }).catch(err => {
-                console.error('Failed to copy:', err);
-            });
-        }
-        
-        // Redirect to store
-        function redirectToStore(platform) {
-            const code = getReferralCode();
-            const loadingEl = document.getElementById('loading');
-            loadingEl.classList.add('show');
-            
-            // Copy code to clipboard for deferred deep link
-            if (code) {
-                navigator.clipboard.writeText(code).catch(() => {});
-            }
-            
-            if (platform === 'ios') {
-                // Try to open app first, then fallback to App Store
-                if (code) {
-                    window.location.href = `${IOS_SCHEME}?code=${code}`;
-                }
-                setTimeout(() => {
-                    window.location.href = APP_STORE_URL;
-                }, 500);
-            } else if (platform === 'android') {
-                // Use intent URL for Android
-                if (code) {
-                    const intentUrl = `intent://invite?code=${code}#Intent;scheme=ipermis;package=com.tapsty.chestionareautoro;S.browser_fallback_url=${encodeURIComponent(PLAY_STORE_URL)};end`;
-                    window.location.href = intentUrl;
-                } else {
-                    window.location.href = PLAY_STORE_URL;
-                }
-            } else {
-                // Desktop - show both options
-                loadingEl.classList.remove('show');
-            }
-        }
-        
         // Initialize page
         function init() {
             const code = getReferralCode();
@@ -375,25 +294,33 @@
                 bonusCard.style.display = 'none';
             }
             
-            // Set up store buttons
-            iosBtn.href = APP_STORE_URL;
-            androidBtn.href = PLAY_STORE_URL;
-            
-            iosBtn.onclick = (e) => {
-                e.preventDefault();
-                redirectToStore('ios');
+            // Set up store buttons with tracking
+            iosBtn.onclick = () => {
+                // Try deep link first if app is installed
+                if (code) {
+                    window.location.href = `ipermis://invite?code=${code}`;
+                    // Fallback to App Store after delay
+                    setTimeout(() => {
+                        window.location.href = APP_STORE_URL;
+                    }, 1500);
+                    return false;
+                }
             };
             
-            androidBtn.onclick = (e) => {
-                e.preventDefault();
-                redirectToStore('android');
+            androidBtn.onclick = () => {
+                // Use intent URL for Android deep linking
+                if (code) {
+                    const intentUrl = `intent://invite?code=${code}#Intent;scheme=ipermis;package=com.tapsty.chestionareautoro;S.browser_fallback_url=${encodeURIComponent(PLAY_STORE_URL)};end`;
+                    window.location.href = intentUrl;
+                    return false;
+                }
             };
             
-            // Auto-redirect on mobile after 2 seconds
-            if (platform !== 'desktop') {
-                setTimeout(() => {
-                    redirectToStore(platform);
-                }, 2000);
+            // Show only relevant store button on mobile
+            if (platform === 'ios') {
+                androidBtn.style.display = 'none';
+            } else if (platform === 'android') {
+                iosBtn.style.display = 'none';
             }
         }
         
@@ -402,4 +329,3 @@
     </script>
 </body>
 </html>
-
